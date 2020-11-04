@@ -1,11 +1,14 @@
 package share.money.market.api.service;
 
-import share.money.market.api.externalservice.dto.TicketReservedDto;
-import share.money.market.api.service.dto.TicketRequestDto;
+import share.money.commons.dto.OfferDto;
 
 public interface MarketService {
 
-    void considerTicket(TicketRequestDto ticketRequestDto);
+    OfferDto newOffer(OfferDto offerDto);
 
-    void ticketReserved(TicketReservedDto ticketReservedDto);
+    void deleteOffer(String offerId);
+
+    void processOfferValidation(OfferDto offerDto, Boolean isValid, String validationErrorReason);
+
+    void processWalletReservationResponse(OfferDto offerDto, Boolean reservationErrorExist, String reservationErrorReason);
 }
